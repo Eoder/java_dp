@@ -16,7 +16,7 @@ public class Main {
             // 等待CrackerThread终止
             for (int i = 0; i < t.length; i++) {
                 try {
-                    t[i].join();
+                    t[i].join();//Join 方法检查线程是否终止。
                 } catch (InterruptedException e) {
                 }
             }
