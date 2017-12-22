@@ -1,11 +1,11 @@
-package Balking.Sample;
+package A4_2a;
 
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.Writer;
 
 public class Data {
-    private final String filename;  // 保存的文件名称
+    private final String filename;  // 保存的文件名
     private String content;         // 数据内容
     private boolean changed;        // 修改后的内容若未保存，则为true
 
@@ -17,25 +17,17 @@ public class Data {
 
     // 修改数据内容
     public synchronized void change(String newContent) {
-
         content = newContent;
         changed = true;
     }
 
     // 若数据内容修改过，则保存到文件中
-    //public synchronized void save() throws IOException {
-    public  void save() throws IOException {
-
+    public synchronized void save() throws IOException {
         if (!changed) {
+            System.out.println(Thread.currentThread().getName() + " balks");
             return;
         }
         doSave();
-        try{
-        	Thread.sleep(100);
-        	
-        }catch(InterruptedException e){
-        	
-        }
         changed = false;
     }
 

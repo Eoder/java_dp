@@ -1,4 +1,4 @@
-package Balking.Sample;
+package A4_2a;
 
 import java.io.IOException;
 import java.util.Random;
@@ -10,7 +10,6 @@ public class ChangerThread extends Thread {
         super(name);
         this.data = data;
     }
-    
     public void run() {
         try {
             for (int i = 0; true; i++) {
